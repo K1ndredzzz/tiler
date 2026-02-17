@@ -29,9 +29,15 @@ RENDER = False
 # multiprocessing pool size
 POOL_SIZE = 8
 
-# out file name
-OUT = 'out.png'
 # image to tile (ignored if passed as the 1st arg)
-IMAGE_TO_TILE = None
+IMAGE_TO_TILE = 'D:\\Code_new\\tiler\\origin\\cat.png'
 # folder with tiles (ignored if passed as the 2nd arg)
-TILES_FOLDER = None
+TILES_FOLDER = 'D:\\Code_new\\tiler\\tiles\\circles\\gen_circle_100'
+# out file name
+import os
+image_base = os.path.splitext(os.path.basename(IMAGE_TO_TILE))[0]
+tile_base = os.path.basename(TILES_FOLDER.rstrip('\\/'))
+output_dir = 'D:\\Code_new\\tiler\\output'
+if not os.path.exists(output_dir):
+    os.makedirs(output_dir)
+OUT = os.path.join(output_dir, f'{image_base}_{tile_base}.png')
